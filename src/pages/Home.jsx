@@ -52,7 +52,7 @@ const Home = () => {
                             <p>HoloHero</p>
                         </div>
                     </a>
-                    <a href="/loginPage"><p>LOG IN</p></a>
+                    <a href="/LoginPage"><p>LOG IN</p></a>
                 </nav>
             </header>
             <main>
