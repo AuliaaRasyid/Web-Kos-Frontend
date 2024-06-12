@@ -1,0 +1,358 @@
+.hero {
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    text-align: center;
+    background-image: linear-gradient(rgba(250, 241, 228, 0.7), rgba(250, 241, 228, 0.7)),
+        url("../../assets/hero-element.png");
+    background-position: center;
+}
+
+.hero__inner {
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.hero__title {
+    color: black;
+    font-weight: 1000;
+    font-size: 96px;
+}
+
+.hero__tagline {
+    color: black;
+    margin-top: 16px;
+    font-size: 50px;
+    font-weight: 800;
+}
+
+.kosan__main {
+    display: flex;
+    flex-direction: row;
+    padding: 10% 8% 10px;
+    gap: 40px;
+    align-items: center;
+}
+
+.carousel-container {
+    width: 100%;
+    max-width: 800px;
+    /* Adjust as necessary */
+    margin: auto;
+}
+
+.carousel-item img {
+    object-fit: cover;
+    /* This ensures the image covers the container without stretching */
+    width: 100%;
+    height: 500px;
+    border-radius: 31px;
+}
+
+.available {
+    color: green;
+}
+
+.full {
+    color: red;
+}
+
+/*
+facility
+*/
+.kosan__facility {
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+
+}
+
+.icon__container {
+    padding-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+    align-content: center;
+}
+
+
+.icon__item {
+    box-shadow: 0 4px 8px 0 #333;
+    border-radius: 21px;
+    position: relative;
+    background-color: #CEDEBD;
+    min-height: 250px;
+    padding: 8%;
+}
+
+.icon__item img {
+    width: 25%;
+}
+
+.icon__item p {
+    font-size: 32px;
+    margin-top: 15px;
+}
+
+/*
+Benefit
+*/
+.benefit__accordion {
+    width: 100%;
+    box-shadow: 0 2px 6px 0 #333;
+}
+
+.benefit__accordion .accordion__item .accordion-header .accordion-button {
+    background-color: #CEDEBD;
+    color: #333;
+    font-size: 40px;
+
+}
+
+.benefit__accordion .accordion__item .accordion-body {
+    background-color: #CEDEBD;
+    font-size: 30px;
+    border-bottom: solid 3px #435334;
+}
+
+.benefit__accordion .accordion-header {
+    border-bottom: solid 3px #435334;
+
+}
+
+/*
+Contact
+*/
+.contact__container {
+    width: 60%;
+    height: 300px;
+    border-radius: 31px;
+    background-color: #CEDEBD;
+    overflow: hidden;
+    text-align: center;
+    padding-top: 16px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 8px 0 #333;
+    margin: 0 auto;
+    /* Center the container */
+}
+
+.contact__subtitle {
+    font-size: 40px;
+}
+
+.contact__button {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    padding-top: 60px;
+    flex-wrap: wrap;
+    /* Ensure buttons wrap on smaller screens */
+}
+
+.contact__button a,
+.contact__button button {
+    flex: 1;
+    /* Make buttons take equal space */
+    text-align: center;
+    max-width: 200px;
+    /* Set a max-width to prevent buttons from getting too wide */
+    min-width: 150px;
+    /* Set a min-width to ensure readability */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact__button button {
+    padding: 10px 20px;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    /* Ensure button takes the full width of its parent */
+    box-sizing: border-box;
+}
+
+.phone-button {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.phone-button:hover {
+    background-color: #45a049;
+}
+
+.whatsapp-link {
+    display: block;
+    width: 100%;
+}
+
+.whatsapp-button {
+    background-color: #25D366;
+    color: white;
+    width: 100%;
+    /* Ensure button takes the full width of its parent */
+}
+
+.whatsapp-button:hover {
+    background-color: #1ebe57;
+}
+
+/* footer */
+
+.footerContainer {
+    width: 100%;
+}
+
+.socialIcons {
+    display: flex;
+    justify-content: center;
+}
+
+.socialIcons a {
+    text-decoration: none;
+    padding: 5px;
+    margin: 10px;
+}
+
+.socialIcons a i {
+    font-size: 2em;
+    opacity: 0. 9;
+}
+
+
+/* responsive */
+
+@media screen and (max-width: 890px) {
+    .icon__container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+
+    .icon__container p {
+        padding-top: 10px;
+    }
+
+    .contact__button {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+
+}
+
+@media (max-width: 767px) {
+    .contact__container {
+        width: 90%;
+        height: auto;
+        padding: 20px;
+    }
+
+    .contact__button {
+        padding-top: 20px;
+    }
+
+    .contact__button button {
+        padding: 10px;
+        font-size: 18px;
+        min-width: 100px;
+    }
+
+    .contact__subtitle {
+        font-size: 28px;
+    }
+
+
+    .kosan__main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .carousel-item img {
+        object-fit: cover;
+        /* This ensures the image covers the container without stretching */
+        width: 100%;
+        height: 300px;
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+    .icon__container {
+        grid-template-columns: 1fr;
+    }
+
+    .icon__item p {
+        font-size: 20px;
+    }
+
+    .hero__title {
+        font-size: 76px;
+    }
+
+    .hero__tagline {
+        font-size: 30px;
+    }
+
+    .benefit__accordion .accordion__item .accordion-header .accordion-button {
+        font-size: 26px;
+    }
+
+    .benefit__accordion .accordion__item .accordion-body {
+        font-size: 24px;
+    }
+
+    .contact__container {
+        font-size: 28px;
+    }
+
+    .contact__button {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .contact__button a,
+    .contact__button button {
+        max-width: 100%;
+        /* Ensure buttons take the full width available */
+        min-width: unset;
+        /* Remove min-width constraint */
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .contact__container {
+        width: 100%;
+    }
+
+    .contact__subtitle {
+        font-size: 20px;
+    }
+
+    .contact__button a,
+    .contact__button button {
+        font-size: 15px;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 330px) {
+    .contact__container {
+        height: 320px;
+    }
+
+    .benefit__accordion .accordion__item .accordion-header .accordion-button {
+        font-size: 20px;
+    }
+    .benefit__accordion .accordion__item .accordion-body {
+        font-size: 20px;
+    }
+   
+}
