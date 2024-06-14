@@ -1,0 +1,3 @@
+MIDTRANS_CLIENT_ID= Your Midtrans CLient ID
+MIDTRANS_API_URL= https://app.sandbox.midtrans.com
+VITE_API_URL= https://web-kos-backend-mklw.vercel.app/api
