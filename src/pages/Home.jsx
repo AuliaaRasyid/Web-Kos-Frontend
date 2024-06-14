@@ -86,6 +86,7 @@ const Home = () => {
                         <h1 className="font-bold border-b-8 border-[#435334] w-fit text-[44px]">Welcome</h1>
                         <p className="text-[32px] text-center pb-16">Selamat datang pada kos yang memberikan kenyamanan</p>
                     </motion.div>
+
                     <motion.section className="kosan__main" ref={refKosanMain}
                         initial="hidden"
                         animate={controlsKosanMain}
@@ -95,21 +96,21 @@ const Home = () => {
                         <Container className="carousel-container">
                             <Carousel fade controls={false} indicators={false} interval={2500}>
                                 <Carousel.Item>
-                                    <Image src={kosan1} className="d-block w-100 img-fluid" loading="lazy" />
+                                    <Image src={kosan1} className="d-block w-100 img-fluid" />
                                 </Carousel.Item>
                                 <Carousel.Item>
-                                    <Image src={kosan2} className="d-block w-100 img-fluid" loading="lazy" />
+                                    <Image src={kosan2} className="d-block w-100 img-fluid" />
                                 </Carousel.Item>
                                 <Carousel.Item>
-                                    <Image src={kosan3} className="d-block w-100 img-fluid" loading="lazy" />
+                                    <Image src={kosan3} className="d-block w-100 img-fluid" />
                                 </Carousel.Item>
                                 <Carousel.Item>
-                                    <Image src={kosan6} className="d-block w-100 img-fluid" loading="lazy" />
+                                    <Image src={kosan6} className="d-block w-100 img-fluid" />
                                 </Carousel.Item>
                             </Carousel>
                         </Container>
                         <div className="flex flex-col items-center text-center text-[30px] md:text-[44px] mt-4">
-                            <p className="font-bold">Alamat</p>
+                            <p className="font-bold">Kos HoloHero</p>
                             <p>Jl. Siaga II No 32 E, Jakarta Selatan</p>
                             <p className={`italic ${availability === 'Available' ? 'available' : 'full'}`}>
                                 Kamar: {availability}
