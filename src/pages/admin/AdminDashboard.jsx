@@ -89,33 +89,35 @@ const AdminDashboard = () => {
             <main className='mainContent'>
                 <div>
                     <h1 className="text-[30px] md:text-[44px] p-6 md:p-10 pb-4 font-bold">Info Penghuni</h1>
-                    <div className='input__section flex flex-row items-center'>
+                    <div className='input__section pb-6 px-[25px] flex flex-row items-center justify-between'>
+                        <div className="radio-buttons flex flex-col gap-3 md:gap-8 text-[22px] lg:text-[30px]">
+                            <p className="xs:text-[20px] sm:text-[30px]">Status Kamar</p>
+                            <div className="flex flex-row gap-3">
+                                <label>
+                                    <input
+                                        type="radio"
+                                        name="availability"
+                                        value="Available"
+                                        checked={availability === 'Available'}
+                                        onChange={handleAvailabilityChange}
+                                    />
+                                    Available
+                                </label>
+                                <label>
+                                    <input
+                                        type="radio"
+                                        name="availability"
+                                        value="Full"
+                                        checked={availability === 'Full'}
+                                        onChange={handleAvailabilityChange}
+                                    />
+                                    Unavailable
+                                </label>
+                            </div>
+                        </div>
                         <a href='adminInput'>
                             <button className="input-button">Tambah</button>
                         </a>
-                        <div className="radio-buttons flex gap-3 md:gap-8 text-[22px] md:text-[32px]">
-
-                            <label>
-                                <input
-                                    type="radio"
-                                    name="availability"
-                                    value="Available"
-                                    checked={availability === 'Available'}
-                                    onChange={handleAvailabilityChange}
-                                />
-                                Available
-                            </label>
-                            <label>
-                                <input
-                                    type="radio"
-                                    name="availability"
-                                    value="Full"
-                                    checked={availability === 'Full'}
-                                    onChange={handleAvailabilityChange}
-                                />
-                                Unavailable
-                            </label>
-                        </div>
                     </div>
                     <div className='table__penghuni px-3 md:px-5 text-[20px]'>
                         <table className="custom-table">
@@ -137,10 +139,10 @@ const AdminDashboard = () => {
                                         <td>{formatDate(user.tanggal_terakhir_bayar)}</td>
                                         <td className='aksi'>
                                             <div className="button-group">
-                                                <button className="aksi-button"onClick={() => navigate(`/AdminDetail/${user._id}`)}>
+                                                <button className="aksi-button" onClick={() => navigate(`/AdminDetail/${user._id}`)}>
                                                     Detail
                                                 </button>
-                                                <button className="aksi-button"onClick={() => navigate(`/AdminEdit/${user._id}`)}>
+                                                <button className="aksi-button" onClick={() => navigate(`/AdminEdit/${user._id}`)}>
                                                     Edit
                                                 </button>
                                                 <button className="aksi-button" onClick={() => deleteUser(user._id)}>Delete</button>

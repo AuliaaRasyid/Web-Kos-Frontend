@@ -31,7 +31,8 @@
 .kosan__main {
     display: flex;
     flex-direction: row;
-    padding: 10% 8% 10px;
+    padding-left: 8%;
+    padding-right: 8%;
     gap: 40px;
     align-items: center;
 }

@@ -12,6 +12,7 @@ import PenghuniKeluhan from './pages/penghuni/PenghuniKeluhan';
 import PrivateRoute from './utils/PrivateRoute';
 import AdminKeluhanDetail from './pages/admin/AdminKeluhanDetail';
 import PenghuniOrderStatus from './pages/penghuni/PenghuniOrderStatus';
+import AccessDenied from './pages/AccessDenied';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
@@ -20,7 +21,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/LoginPage" element={<LoginPage />} />
-        <Route path="/PenghuniOrderStatus" element={<PenghuniOrderStatus />} />
+        <Route path="/AccessDenied" element={<AccessDenied />} />
 
         <Route path="/AdminDashboard" element={
           <PrivateRoute allowedRoles={['admin']}>

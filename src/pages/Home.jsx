@@ -35,7 +35,7 @@ const Home = () => {
 
         fetchStatus();
     }, []);
-    
+
     const copyNumber = () => {
         navigator.clipboard.writeText("087731366528");
         alert("Phone number copied to clipboard!");
@@ -48,7 +48,7 @@ const Home = () => {
                 justify-between text-black py-4 xs:px-4 md:px-10 text-[30px] md:text-[44px]">
                     <a href="/">
                         <div className="flex flex-row items-center">
-                            <img src={logo} className="w-[50px] md:w-[100px]" />
+                            <img src={logo} className="w-[50px] md:w-[100px]" alt="HoloHero Logo" />
                             <p>HoloHero</p>
                         </div>
                     </a>
@@ -76,6 +76,15 @@ const Home = () => {
                     </div>
                 </motion.div>
                 <div className="mainContent bg-[#FAF1E4]">
+                    <motion.div className="px-10 pt-20 w-full flex flex-col items-center" ref={refKosanMain}
+                        initial="hidden"
+                        animate={controlsKosanMain}
+                        variants={sectionAnimation}
+                        transition={{ duration: 0.5 }}
+                    >
+                        <h1 className="font-bold border-b-8 border-[#435334] w-fit text-[44px]">Welcome</h1>
+                        <p className="text-[32px] text-center pb-16">Selamat datang pada kos yang memberikan kenyamanan</p>
+                    </motion.div>
                     <motion.section className="kosan__main" ref={refKosanMain}
                         initial="hidden"
                         animate={controlsKosanMain}
@@ -85,21 +94,21 @@ const Home = () => {
                         <Container className="carousel-container">
                             <Carousel fade controls={false} indicators={false} interval={2500}>
                                 <Carousel.Item>
-                                    <Image src={kosan1} className="d-block w-100 img-fluid" />
+                                    <Image src={kosan1} className="d-block w-100 img-fluid" loading="lazy" />
                                 </Carousel.Item>
                                 <Carousel.Item>
-                                    <Image src={kosan2} className="d-block w-100 img-fluid" />
+                                    <Image src={kosan2} className="d-block w-100 img-fluid" loading="lazy" />
                                 </Carousel.Item>
                                 <Carousel.Item>
-                                    <Image src={kosan3} className="d-block w-100 img-fluid" />
+                                    <Image src={kosan3} className="d-block w-100 img-fluid" loading="lazy" />
                                 </Carousel.Item>
                                 <Carousel.Item>
-                                    <Image src={kosan6} className="d-block w-100 img-fluid" />
+                                    <Image src={kosan6} className="d-block w-100 img-fluid" loading="lazy" />
                                 </Carousel.Item>
                             </Carousel>
                         </Container>
                         <div className="flex flex-col items-center text-center text-[30px] md:text-[44px] mt-4">
-                            <p className="font-bold">Kos HoloHero</p>
+                            <p className="font-bold">Alamat</p>
                             <p>Jl. Siaga II No 32 E, Jakarta Selatan</p>
                             <p className={`italic ${availability === 'Available' ? 'available' : 'full'}`}>
                                 Kamar: {availability}
@@ -153,9 +162,9 @@ const Home = () => {
                                 <p className="contact__subtitle">087731366528</p>
                                 <div className="contact__button">
                                     <button className="phone-button" onClick={copyNumber}>Copy Number</button>
-                                <Link to={"https://wa.me/6287731366528"} >
-                                    <button className="whatsapp-button"><i className="fa fa-whatsapp" aria-hidden="true"></i>  WhatsApp</button>
-                                </Link>                                
+                                    <Link to={"https://wa.me/6287731366528"} >
+                                        <button className="whatsapp-button"><i className="fa fa-whatsapp" aria-hidden="true"></i>  WhatsApp</button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>

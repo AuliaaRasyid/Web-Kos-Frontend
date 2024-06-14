@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 import PopupBayar from '../../components/PopupBayar';
 import { formatDate, addMonthsToDate } from '../../utils/dateUtils';
 import { useNavigate } from 'react-router-dom';
+import Footer from '../../components/Footer';
 import { API_URL } from '../../utils/constant';
 
 const PenghuniDashboard = () => {
@@ -22,7 +23,6 @@ const PenghuniDashboard = () => {
                 Swal.fire("Invalid ID");
                 return;
             }
-
             try {
                 const response = await fetch(`${API_URL}/users/${id}`);
                 if (!response.ok) {
@@ -111,9 +111,7 @@ const PenghuniDashboard = () => {
                 </div>
                 {isPopupOpen && <PopupBayar userId={id} closePopup={closePopup} />}
             </main>
-            <footer>
-                <p>footer by group lmao 32</p>
-            </footer>
+            <Footer />
         </div>
     );
 };

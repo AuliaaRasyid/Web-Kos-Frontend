@@ -51,6 +51,10 @@ const PenghuniOrderStatus = () => {
                             <span className="receipt-value">{orderData.paymentStatus}</span>
                         </div>
                         <div className="receipt-item">
+                            <span className="receipt-label">Payment Method:</span>
+                            <span className="receipt-value">{orderData.paymentMethod}</span>
+                        </div>
+                        <div className="receipt-item">
                             <span className="receipt-label">Date:</span>
                             <span className="receipt-value">{dateUtils(orderData.createdAt)}</span>
                         </div>

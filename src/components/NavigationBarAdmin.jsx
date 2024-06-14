@@ -1,8 +1,15 @@
 import { Navbar, Container, Nav, Offcanvas } from 'react-bootstrap';
 import Logout from '../utils/Logout'; // Ensure the path is correct
 import logo from "../assets/logo.png"
+import { useLocation } from 'react-router-dom';
 
 const NavigationBarAdmin = () => {
+    const location = useLocation();
+
+    const isActive = (path) => {
+        return location.pathname === path;
+    };
+
     return (
         <div>
             {[false].map((expand) => (
@@ -28,8 +35,8 @@ const NavigationBarAdmin = () => {
                                     <h1 className=' font-bold'>Account</h1>
                                     <Logout />
                                     <h1 className=' font-bold pt-10'>Pages</h1>
-                                    <Nav.Link href="/adminDashboard">Tambah Penghuni</Nav.Link>
-                                    <Nav.Link href="/adminKeluhan">Keluhan Penghuni</Nav.Link>
+                                    <Nav.Link className = {isActive("/AdminDashboard") ? "underline" : ""} href="/AdminDashboard">Tambah Penghuni</Nav.Link>
+                                    <Nav.Link className = {isActive("/AdminKeluhan") ? "underline" : ""} href="/AdminKeluhan">Keluhan Penghuni</Nav.Link>
                                 </Nav>
                             </Offcanvas.Body>
                         </Navbar.Offcanvas>

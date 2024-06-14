@@ -30,11 +30,6 @@ footer {
 mainContent 
 */
 
-.input__section {
-    padding: 0px 4% 4%;
-    gap: 40px;
-}
-
 .input__section button {
     padding: 8px 30px;
     font-size: 24px;
@@ -47,6 +42,7 @@ mainContent
     background-color: #9EB384;
     color: white;
     border: 1px solid #435334;
+    width: 100%;
 }
 
 .radio-buttons label {
@@ -203,10 +199,6 @@ form
 /* responsive */
 
 @media screen and (min-width: 1300px) {
-    .input__section {
-        padding: 0px 2% 4%;
-    }
-
     .receipt {
         max-width: 800px;
     }
@@ -292,7 +284,7 @@ form
 }
 
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 450px) {
     .input__section button {
         font-size: 16px;
         padding: 6px 10px;

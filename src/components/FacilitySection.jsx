@@ -42,7 +42,6 @@ const FacilitySection = () => {
         const [ref, inView] = useInView({ triggerOnce: true, threshold });
     
         useEffect(() => {
-            console.log('InView:', inView);
             if (inView) {
                 controls.start('show');
             } else {
