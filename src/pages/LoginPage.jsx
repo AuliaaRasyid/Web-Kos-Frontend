@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Container, Form } from 'react-bootstrap';
 import './styles/Login.css';
 import Swal from 'sweetalert2';
+import { API_URL } from '../utils/constant';
 
 const LoginPage = () => {
   const navigateTo = useNavigate();
@@ -14,7 +15,7 @@ const LoginPage = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:5000/api/login', {
+      const response = await fetch(`${API_URL}/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

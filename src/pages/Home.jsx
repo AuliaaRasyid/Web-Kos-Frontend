@@ -15,6 +15,7 @@ import { useEffect, useState } from 'react';
 import FacilitySection from "../components/FacilitySection";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
+import { API_URL } from "../utils/constant";
 
 const Home = () => {
     const [refKosanMain, controlsKosanMain] = useSectionAnimation();
@@ -25,7 +26,7 @@ const Home = () => {
     useEffect(() => {
         const fetchStatus = async () => {
             try {
-                const response = await fetch('http://localhost:5000/api/status');
+                const response = await fetch(`${API_URL}/status`);
                 const data = await response.json();
                 setAvailability(data.availability);
             } catch (error) {
