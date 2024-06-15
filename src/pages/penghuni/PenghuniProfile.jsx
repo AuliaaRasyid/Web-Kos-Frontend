@@ -60,38 +60,56 @@ const PenghuniProfile = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const result = await Swal.fire({
-            title: 'Are you sure you want to change the password?',
+            title: 'Are you sure you want to change this?',
             icon: 'question',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, update it!'
         });
-        
+
         if (result.isConfirmed) {
             try {
-                const response = await fetch(`${API_URL}/users/${id}/change-password`, {
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ oldPassword, newPassword, userData })
-                });
-                const data = await response.json(); // Parse response body
-
-                if (response.ok) {
-                    Swal.fire('User data updated successfully', '', 'success');
-                    navigateTo(`/PenghuniDashboard/${userData._id}`);
-
-                } else {
-                    throw new Error(data.message);
+                // Update name
+                if (userData.name) {
+                    const nameResponse = await fetch(`${API_URL}/users/${id}/change-name`, {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ name: userData.name })
+                    });
+                    if (!nameResponse.ok) {
+                        const errorData = await nameResponse.json();
+                        throw new Error(errorData.message || 'Failed to update name');
+                    }
+                    Swal.fire('Name updated successfully', '', 'success');
                 }
 
+                // Update password if provided
+                if (oldPassword && newPassword) {
+                    const passwordResponse = await fetch(`${API_URL}/users/${id}/change-password`, {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ oldPassword, newPassword })
+                    });
+                    const passwordData = await passwordResponse.json();
+
+                    if (!passwordResponse.ok) {
+                        throw new Error(passwordData.message);
+                    }
+                    Swal.fire('Password updated successfully', '', 'success');
+                }
+
+                navigateTo(`/PenghuniDashboard/${userData._id}`);
             } catch (error) {
                 Swal.fire(error.message, '', 'error');
             }
         }
     };
+
 
     return (
         <div className="admin-container font-forum">
