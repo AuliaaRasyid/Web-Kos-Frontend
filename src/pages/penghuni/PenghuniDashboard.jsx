@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import PopupBayar from '../../components/PopupBayar';
-import { formatDate, addMonthsToDate } from '../../utils/dateUtils';
+import { formatDate } from '../../utils/dateUtils';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../../components/Footer';
 import { API_URL } from '../../utils/constant';
@@ -29,7 +29,6 @@ const PenghuniDashboard = () => {
                     throw new Error(`Error: ${response.status} ${response.statusText}`);
                 }
                 const data = await response.json();
-                // Format dates before setting the state
                 data.tanggal_masuk = formatDate(data.tanggal_masuk);
                 data.tanggal_terakhir_bayar = formatDate(data.tanggal_terakhir_bayar);
                 setUserData(data);
@@ -50,10 +49,6 @@ const PenghuniDashboard = () => {
         setIsPopupOpen(false);
     }
 
-    const deadline = userData.tanggal_terakhir_bayar
-        ? formatDate(addMonthsToDate(userData.tanggal_terakhir_bayar, userData.durasi_bayar))
-        : '';
-
     const copyNumber = () => {
         navigator.clipboard.writeText("087731366528");
         Swal.fire("Phone number copied to clipboard");
@@ -66,8 +61,7 @@ const PenghuniDashboard = () => {
             </header>
             <main className="mainContent pb-4">
                 <div>
-                    <h1 className="text-[30px] md:text-[38px] p-6 md:p-10 pb-4">Deadline: {deadline}</h1>
-                    <div className="table__penghuni px-3 md:px-5 text-[20px]">
+                    <div className="table__penghuni pt-20 px-3 md:px-5 text-[20px]">
                         <table className="custom-table">
                             <thead>
                                 <tr className="text-center">
@@ -93,9 +87,9 @@ const PenghuniDashboard = () => {
                         </table>
                     </div>
                     <section className="contact">
-                        <div className="kosan__contact text-[44px] flex flex-col items-center pt-20 p-20">
+                        <div className="kosan__contact text-[30px] md:text-[44px] flex flex-col items-center pt-20 p-20">
                             <h1 className="px-4 py-1 border-b-8 border-[#435334] w-fit font-bold">Contact</h1>
-                            <p className="pb-10 text-[32px] text-center">Kontak untuk pertanyaan lebih lanjut silakan hubungi</p>
+                            <p className="pb-10 text-[26px] md:text-[32px] text-center">Kontak untuk pertanyaan lebih lanjut silakan hubungi</p>
                             <div className="contact__container">
                                 <p className="contact__title text-[28px] md:text-[44px] font-bold">Rusdi Awamalum</p>
                                 <p className="contact__subtitle">087731366528</p>

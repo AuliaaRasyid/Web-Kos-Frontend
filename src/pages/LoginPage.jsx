@@ -65,6 +65,7 @@ const LoginPage = () => {
             <Form.Control
               type="text"
               placeholder="Enter username"
+              required
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
@@ -74,6 +75,7 @@ const LoginPage = () => {
             <Form.Control
               type="password"
               placeholder="Enter password"
+              required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />

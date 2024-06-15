@@ -40,7 +40,6 @@
 .carousel-container {
     width: 100%;
     max-width: 800px;
-    /* Adjust as necessary */
     margin: auto;
 }
 
@@ -137,7 +136,6 @@ Contact
     box-sizing: border-box;
     box-shadow: 0 4px 8px 0 #333;
     margin: 0 auto;
-    /* Center the container */
 }
 
 .contact__subtitle {
@@ -161,7 +159,6 @@ Contact
     max-width: 200px;
     /* Set a max-width to prevent buttons from getting too wide */
     min-width: 150px;
-    /* Set a min-width to ensure readability */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -223,9 +220,7 @@ Contact
 
 .socialIcons a i {
     font-size: 2em;
-    opacity: 0. 9;
 }
-
 
 /* responsive */
 
@@ -243,11 +238,17 @@ Contact
         padding-left: 20px;
         padding-right: 20px;
     }
-
-
 }
 
 @media (max-width: 767px) {
+    .hero__title {
+        font-size: 76px;
+    }
+
+    .hero__tagline {
+        font-size: 30px;
+    }
+
     .contact__container {
         width: 90%;
         height: auto;
@@ -294,14 +295,6 @@ Contact
         font-size: 20px;
     }
 
-    .hero__title {
-        font-size: 76px;
-    }
-
-    .hero__tagline {
-        font-size: 30px;
-    }
-
     .benefit__accordion .accordion__item .accordion-header .accordion-button {
         font-size: 26px;
     }
@@ -322,9 +315,19 @@ Contact
     .contact__button a,
     .contact__button button {
         max-width: 100%;
-        /* Ensure buttons take the full width available */
         min-width: unset;
-        /* Remove min-width constraint */
+    }
+
+    .socialIcons a {
+        padding: 2px;
+    }
+
+    .socialIcons a i {
+        font-size: 1.5em;
+    }
+
+    .footerBottom {
+        font-size: 16px;
     }
 }
 
@@ -352,8 +355,9 @@ Contact
     .benefit__accordion .accordion__item .accordion-header .accordion-button {
         font-size: 20px;
     }
+
     .benefit__accordion .accordion__item .accordion-body {
         font-size: 20px;
     }
-   
+
 }

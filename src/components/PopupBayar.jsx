@@ -47,6 +47,7 @@ const PopupBayar = ({ userId, closePopup }) => {
                         // const redirectUrl = `/order-status/${result.order_id}`;
                         // navigate(redirectUrl)
                         Swal.fire('Success', `id: ${result.order_id} Payment is successful`, 'success');
+                        closePopup();
                     },
                     onPending: function (result) {
                         console.log('pending', result);

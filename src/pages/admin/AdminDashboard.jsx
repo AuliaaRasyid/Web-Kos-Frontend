@@ -89,10 +89,10 @@ const AdminDashboard = () => {
             <main className='mainContent'>
                 <div>
                     <h1 className="text-[30px] md:text-[44px] p-6 md:p-10 pb-4 font-bold">Info Penghuni</h1>
-                    <div className='input__section pb-6 px-[25px] flex flex-row items-center justify-between'>
-                        <div className="radio-buttons flex flex-col gap-3 md:gap-8 text-[22px] lg:text-[30px]">
+                    <div className='px-6 md:px-10 input__section pb-6 px-[25px] flex flex-row items-center justify-between'>
+                        <div className="flex flex-col gap-3 md:gap-8 text-[22px] lg:text-[30px]">
                             <p className="xs:text-[20px] sm:text-[30px]">Status Kamar</p>
-                            <div className="flex flex-row gap-3">
+                            <div className="radio-buttons flex flex-row gap-3">
                                 <label>
                                     <input
                                         type="radio"

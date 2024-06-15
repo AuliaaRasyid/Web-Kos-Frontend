@@ -1,7 +1,7 @@
 import { Navbar, Container, Nav, Offcanvas } from 'react-bootstrap';
 import logo from "../assets/logo.png"
 import { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Logout from '../utils/Logout';
 import { API_URL } from '../utils/constant';
 import { useLocation } from 'react-router-dom';
@@ -26,7 +26,7 @@ const NavigationBarPenghuni = () => {
         };
 
         fetchUsers();
-    }, );
+    }, [id]);
 
     return (
         <div>

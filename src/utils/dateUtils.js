@@ -13,10 +13,3 @@ export const formatDate = (dateString) => {
     const day = String(date.getDate()).padStart(2, '0');
     return `${day}-${month}-${year}`;
 }
-
-export const addMonthsToDate = (dateString, months) => {
-    const [day, month, year] = dateString.split('-').map(Number);
-    const date = new Date(year, month - 1, day);
-    date.setMonth(date.getMonth() + months);
-    return date;
-};
