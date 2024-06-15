@@ -7,7 +7,6 @@ import Footer from '../../components/Footer';
 import { API_URL } from '../../utils/constant';
 import { useNavigate } from 'react-router-dom';
 
-
 const AdminInput = () => {
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
@@ -37,6 +36,11 @@ const AdminInput = () => {
                 throw new Error('Please fill out all required fields');
             }
 
+            // Check if no_kamar exceeds 15
+            if (parseInt(formData.no_kamar, 10) > 15) {
+                throw new Error('No Kamar cannot exceed 15');
+            }
+
             // Encrypt password
             const encryptedPassword = await encryptPassword(formData.password);
 
@@ -62,9 +66,9 @@ const AdminInput = () => {
                 text: 'User created successfully',
                 icon: "success"
             });
-           
+
         } catch (error) {
-            Swal.fire({text:`Error: ${error.message}`, icon:"error"});
+            Swal.fire({ text: `Error: ${error.message}`, icon: "error" });
         }
     };
 
@@ -83,9 +87,17 @@ const AdminInput = () => {
                 <h1 className="text-[30px] md:text-[38px] p-6 md:p-10 pb-4 font-bold">Input Penghuni</h1>
                 <Container className="form-container p-4 md:p-5 bg-[#CEDEBD] rounded text-[28px]">
                     <Form className='form-profile' onSubmit={handleSubmit}>
-                        <Form.Group className="mb-3" controlId="formName">
+                        <Form.Group className="mb-3" controlId="formNoKamar">
                             <Form.Label className='text-[24px] md:text-[28px]'>No Kamar</Form.Label>
-                            <Form.Control type="text" name="no_kamar" value={formData.no_kamar} onChange={handleChange} placeholder="Enter room number" />
+                            <Form.Control
+                                type="number"
+                                name="no_kamar"
+                                value={formData.no_kamar}
+                                onChange={handleChange}
+                                placeholder="Enter room number"
+                                min="1"
+                                max="15" // Ensure no_kamar does not exceed 15
+                            />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formUsername">
                             <Form.Label className='text-[24px] md:text-[28px]'>Username</Form.Label>

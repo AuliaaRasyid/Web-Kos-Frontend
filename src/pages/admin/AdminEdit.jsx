@@ -56,7 +56,7 @@ const AdminEdit = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+        
         const result = await Swal.fire({
             title: 'Are you sure you want to change the data?',
             icon: 'question',
@@ -67,6 +67,10 @@ const AdminEdit = () => {
         });
         if (result.isConfirmed) {
             try {
+                if (parseInt(userData.no_kamar, 10) > 15) {
+                    throw new Error('No Kamar cannot exceed 15');
+                }
+        
                 const response = await fetch(`${API_URL}/users/${id}`, {
                     method: 'PUT',
                     headers: {
@@ -82,7 +86,8 @@ const AdminEdit = () => {
                 } else {
                     throw new Error(data.message);
                 }
-            navigateTo('/AdminDashboard')
+                
+                navigateTo('/AdminDashboard')
             } catch (error) {
                 Swal.fire({ text: `Error: ${error.message}`, icon: "error" });
             }
@@ -101,10 +106,11 @@ const AdminEdit = () => {
                         <Form.Group className="mb-3" controlId="formNoKamar">
                             <Form.Label className='text-[24px] md:text-[28px]'>No Kamar</Form.Label>
                             <Form.Control
-                                type="text"
+                                type="number"
                                 name="no_kamar"
                                 value={userData.no_kamar}
                                 onChange={handleInputChange}
+                                max={15}
                             />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formName">

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Accordion from 'react-bootstrap/Accordion';
@@ -6,7 +6,6 @@ import Carousel from 'react-bootstrap/Carousel';
 import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
 import Swal from 'sweetalert2';
-
 import logo from "../assets/logo.png";
 import kosan1 from "../assets/kosan3.jpg";
 import kosan2 from "../assets/kosan4.jpg";
@@ -129,9 +128,11 @@ const Home = () => {
                         <div className="flex flex-col items-center text-center text-[30px] md:text-[35px] mt-4">
                             <p className="font-bold">Kos HoloHero</p>
                             <p>Jl. Siaga II No 32 E, Jakarta Selatan</p>
+                            <p>Harga: Rp. 1.000.000</p>
                             <p className={`italic ${availability === 'Available' ? 'available' : 'full'}`}>
                                 Kamar: {availability}
                             </p>
+                            
                         </div>
                     </motion.section>
                     <FacilitySection />
@@ -177,8 +178,8 @@ const Home = () => {
                             <h1 className="px-4 py-1 border-b-8 border-[#435334] w-fit font-bold">Contact</h1>
                             <p className="pb-10 text-[28px] text-center">Kontak untuk pertanyaan lebih lanjut silakan hubungi</p>
                             <div className="contact__container">
-                                <p className="contact__title text-[25px] md:text-[38px] font-bold">Rusdi Awamalum</p>
-                                <p className="contact__subtitle text-[32px]">087731366528</p>
+                                <p className="contact__title font-bold">Rusdi Awamalum</p>
+                                <p className="contact__subtitle">087731366528</p>
                                 <div className="contact__button">
                                     <button className="phone-button" onClick={copyNumber}>Copy Number</button>
                                     <Link to={"https://wa.me/6287731366528"} >
