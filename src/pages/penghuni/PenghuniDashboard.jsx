@@ -87,12 +87,12 @@ const PenghuniDashboard = () => {
                         </table>
                     </div>
                     <section className="contact">
-                        <div className="kosan__contact text-[30px] md:text-[44px] flex flex-col items-center pt-20 p-20">
+                        <div className="kosan__contact text-[30px] md:text-[38px] flex flex-col items-center pt-20 p-20">
                             <h1 className="px-4 py-1 border-b-8 border-[#435334] w-fit font-bold">Contact</h1>
-                            <p className="pb-10 text-[26px] md:text-[32px] text-center">Kontak untuk pertanyaan lebih lanjut silakan hubungi</p>
+                            <p className="pb-10 text-[28px] text-center">Kontak untuk pertanyaan lebih lanjut silakan hubungi</p>
                             <div className="contact__container">
-                                <p className="contact__title text-[28px] md:text-[44px] font-bold">Rusdi Awamalum</p>
-                                <p className="contact__subtitle">087731366528</p>
+                                <p className="contact__title text-[25px] md:text-[38px] font-bold">Rusdi Awamalum</p>
+                                <p className="contact__subtitle text-[32px]">087731366528</p>
                                 <div className="contact__button">
                                     <button className="phone-button" onClick={copyNumber}>Copy Number</button>
                                     <a href="https://wa.me/6287731366528" className="whatsapp-link">

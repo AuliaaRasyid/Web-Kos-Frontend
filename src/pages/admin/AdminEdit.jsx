@@ -78,6 +78,7 @@ const AdminEdit = () => {
 
                 if (response.ok) {
                     Swal.fire('User data updated successfully', '', 'success');
+                    navigateTo('/AdminDashboard');
                 } else {
                     throw new Error(data.message);
                 }

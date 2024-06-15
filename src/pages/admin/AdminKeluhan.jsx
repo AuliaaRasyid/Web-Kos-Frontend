@@ -8,6 +8,7 @@ import { API_URL } from '../../utils/constant';
 const AdminKeluhan = () => {
     const navigate = useNavigate();
     const [complaints, setComplaints] = useState([]);
+    const [sortConfig, setSortConfig] = useState({ key: 'no_kamar', direction: 'ascending' });
 
     useEffect(() => {
         const fetchComplaints = async () => {
@@ -66,6 +67,24 @@ const AdminKeluhan = () => {
         return text;
     };
 
+    const sortComplaints = (key) => {
+        let direction = 'ascending';
+        if (sortConfig.key === key && sortConfig.direction === 'ascending') {
+            direction = 'descending';
+        }
+        setSortConfig({ key, direction });
+    };
+
+    const sortedComplaints = [...complaints].sort((a, b) => {
+        if (a[sortConfig.key] < b[sortConfig.key]) {
+            return sortConfig.direction === 'ascending' ? -1 : 1;
+        }
+        if (a[sortConfig.key] > b[sortConfig.key]) {
+            return sortConfig.direction === 'ascending' ? 1 : -1;
+        }
+        return 0;
+    });
+
     return (
         <div className="admin-container font-forum">
             <header>
@@ -78,18 +97,19 @@ const AdminKeluhan = () => {
                         <table className="custom-table">
                             <thead>
                                 <tr className='text-center'>
-                                    <th className='max-w-10 md:max-w-32'>No. Kamar</th>
+                                    <th className='cursor-pointer max-w-10' onClick={() => sortComplaints('no_kamar')} 
+                                    >No. Kamar</th>
                                     <th>Nama</th>
                                     <th>Keluhan</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody className='text-center'>
-                                {complaints.map(user => user.keluhan.map(complaint => (
+                                {sortedComplaints.map(user => user.keluhan.map(complaint => (
                                     <tr key={complaint._id}>
                                         <td>{user.no_kamar}</td>
                                         <td>{user.name}</td>
-                                        <td className='max-w-14 md:max-w-32'>{limitText(complaint.keluhan, 100)}</td>
+                                        <td className='max-w-14 md:max-w-38'>{limitText(complaint.keluhan, 100)}</td>
                                         <td className='aksi max-w-[48px] md:max-w-32'>
                                             <div className="button-group">
                                                 <button className="aksi-button" onClick={() => navigate(`/AdminKeluhanDetail/${user._id}/${complaint._id}`)}>Detail</button>

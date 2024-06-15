@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       screens: {
-        'xs': '360px',
+        'xs': '320px',
       },
       fontFamily: {
         forum: ['Forum','sans-serif']

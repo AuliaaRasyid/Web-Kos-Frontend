@@ -61,9 +61,9 @@ const FacilitySection = () => {
             variants={sectionAnimation}
             transition={{ duration: 0.5 }}
         >
-            <div className="kosan__facility text-[44px] flex flex-col items-center p-20">
+            <div className="kosan__facility text-[38px] flex flex-col items-center p-20">
                 <h1 className="px-4 py-1 border-b-8 border-[#435334] w-fit font-bold">Facility</h1>
-                <p className="text-[32px] text-center">Kosan dilengkapi dengan fasilitas berikut</p>
+                <p className="text-[28px] text-center">Kosan dilengkapi dengan fasilitas berikut</p>
                 <div className="icon__container">
                     {facilityItems.map((item, index) => (
                         <motion.div className="icon__item" key={index}

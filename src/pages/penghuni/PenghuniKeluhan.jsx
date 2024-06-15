@@ -7,8 +7,10 @@ import Swal from 'sweetalert2'
 import { } from "../styles/adminPenghuni.css"
 import Footer from '../../components/Footer';
 import { API_URL } from '../../utils/constant';
+import { useNavigate } from 'react-router-dom';
 
 const PenghuniKeluhan = () => {
+    const navigate = useNavigate();
     const { id } = useParams();
     const [userKeluhan, setUserKeluhan] = useState({
         no_kamar: '',
@@ -74,6 +76,7 @@ const PenghuniKeluhan = () => {
                 text: 'Complaint created successfully',
                 icon: "success"
             });
+            navigate(`/PenghuniDashboard/${id}`);
             
         } catch (error) {
             Swal.fire({text:`Error: ${error.message}`, icon:"error"});
@@ -104,6 +107,7 @@ const PenghuniKeluhan = () => {
                                 as="textarea"
                                 rows={3}
                                 name="keluhan"
+                                required
                                 placeholder="Enter your Keluhan"
                                 value={userKeluhan.keluhan}
                                 onChange={handleChange}

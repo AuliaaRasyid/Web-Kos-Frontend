@@ -2,7 +2,7 @@
     background-color: transparent;
     display: flex;
     align-items: center;
-    height: 100vh;
+    height: 80vh;
     width: 100%;
     text-align: center;
     background-image: linear-gradient(rgba(250, 241, 228, 0.7), rgba(250, 241, 228, 0.7)),
@@ -18,13 +18,13 @@
 .hero__title {
     color: black;
     font-weight: 1000;
-    font-size: 96px;
+    font-size: 80px;
 }
 
 .hero__tagline {
     color: black;
     margin-top: 16px;
-    font-size: 50px;
+    font-size: 40px;
     font-weight: 800;
 }
 
@@ -92,7 +92,7 @@ facility
 }
 
 .icon__item p {
-    font-size: 32px;
+    font-size: 25px;
     margin-top: 15px;
 }
 
@@ -107,13 +107,13 @@ Benefit
 .benefit__accordion .accordion__item .accordion-header .accordion-button {
     background-color: #CEDEBD;
     color: #333;
-    font-size: 40px;
+    font-size: 32px;
 
 }
 
 .benefit__accordion .accordion__item .accordion-body {
     background-color: #CEDEBD;
-    font-size: 30px;
+    font-size: 25px;
     border-bottom: solid 3px #435334;
 }
 
@@ -283,6 +283,17 @@ Contact
         width: 100%;
         height: 300px;
     }
+    .socialIcons a {
+        padding: 2px;
+    }
+
+    .socialIcons a i {
+        font-size: 1.6em;
+    }
+
+    .footerBottom {
+        font-size: 18px;
+    }
 
 }
 
@@ -318,17 +329,6 @@ Contact
         min-width: unset;
     }
 
-    .socialIcons a {
-        padding: 2px;
-    }
-
-    .socialIcons a i {
-        font-size: 1.5em;
-    }
-
-    .footerBottom {
-        font-size: 16px;
-    }
 }
 
 @media screen and (max-width: 360px) {

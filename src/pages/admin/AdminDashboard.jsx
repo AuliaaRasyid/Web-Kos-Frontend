@@ -10,6 +10,7 @@ const AdminDashboard = () => {
     const navigate = useNavigate();
     const [users, setUsers] = useState([]);
     const [availability, setAvailability] = useState('Available');
+    const [sortConfig, setSortConfig] = useState({ key: 'no_kamar', direction: 'ascending' });
 
     useEffect(() => {
         const fetchUsers = async () => {
@@ -81,6 +82,24 @@ const AdminDashboard = () => {
         }
     };
 
+    const sortUsers = (key) => {
+        let direction = 'ascending';
+        if (sortConfig.key === key && sortConfig.direction === 'ascending') {
+            direction = 'descending';
+        }
+        setSortConfig({ key, direction });
+    };
+
+    const sortedUsers = [...users].sort((a, b) => {
+        if (a[sortConfig.key] < b[sortConfig.key]) {
+            return sortConfig.direction === 'ascending' ? -1 : 1;
+        }
+        if (a[sortConfig.key] > b[sortConfig.key]) {
+            return sortConfig.direction === 'ascending' ? 1 : -1;
+        }
+        return 0;
+    });
+
     return (
         <div className="admin-container font-forum">
             <header>
@@ -89,7 +108,7 @@ const AdminDashboard = () => {
             <main className='mainContent'>
                 <div>
                     <h1 className="text-[30px] md:text-[44px] p-6 md:p-10 pb-4 font-bold">Info Penghuni</h1>
-                    <div className='px-6 md:px-10 input__section pb-6 px-[25px] flex flex-row items-center justify-between'>
+                    <div className='px-6 md:px-10 input__section pb-6 flex flex-row items-center justify-between'>
                         <div className="flex flex-col gap-3 md:gap-8 text-[22px] lg:text-[30px]">
                             <p className="xs:text-[20px] sm:text-[30px]">Status Kamar</p>
                             <div className="radio-buttons flex flex-row gap-3">
@@ -123,7 +142,7 @@ const AdminDashboard = () => {
                         <table className="custom-table">
                             <thead>
                                 <tr className='text-center'>
-                                    <th>No. Kamar</th>
+                                    <th className='cursor-pointer' onClick={() => sortUsers('no_kamar')}>No. Kamar</th>
                                     <th>Nama</th>
                                     <th>Tgl Masuk</th>
                                     <th>Tgl Bayar <br />Terakhir</th>
@@ -131,7 +150,7 @@ const AdminDashboard = () => {
                                 </tr>
                             </thead>
                             <tbody className='text-center'>
-                                {users.map(user => (
+                                {sortedUsers.map(user => (
                                     <tr key={user._id}>
                                         <td>{user.no_kamar}</td>
                                         <td>{user.name}</td>

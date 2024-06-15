@@ -5,9 +5,11 @@ import Form from 'react-bootstrap/Form';
 import Swal from 'sweetalert2';
 import Footer from '../../components/Footer';
 import { API_URL } from '../../utils/constant';
+import { useNavigate } from 'react-router-dom';
 
 
 const AdminInput = () => {
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         no_kamar: '',
         username: '',
@@ -54,20 +56,13 @@ const AdminInput = () => {
                 // If the response is not ok, throw an error with the error message from the backend
                 throw new Error(data.message);
             }
+            navigate('/AdminDashboard');
 
             Swal.fire({
                 text: 'User created successfully',
                 icon: "success"
             });
-            // Clear form data after successful submission
-            setFormData({
-                no_kamar: '',
-                username: '',
-                name: '',
-                no_telepon: '',
-                tanggal_masuk: '',
-                password: ''
-            });
+           
         } catch (error) {
             Swal.fire({text:`Error: ${error.message}`, icon:"error"});
         }
