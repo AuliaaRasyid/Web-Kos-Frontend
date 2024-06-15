@@ -44,9 +44,9 @@ const PopupBayar = ({ userId, closePopup }) => {
             if (window.snap) {
                 window.snap.pay(data.snap_token, {
                     onSuccess: function (result) {
-                        const redirectUrl = `/order-status/${result.order_id}`;
-                        navigate(redirectUrl)
-                        //Swal.fire('Success', `id: ${result.order_id} Payment is successful`, 'success');
+                        // const redirectUrl = `/order-status/${result.order_id}`;
+                        // navigate(redirectUrl)
+                        Swal.fire('Success', `id: ${result.order_id} Payment is successful`, 'success');
                     },
                     onPending: function (result) {
                         console.log('pending', result);

@@ -3,10 +3,16 @@ import logo from "../assets/logo.png"
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Logout from '../utils/Logout';
+import { API_URL } from '../utils/constant';
+import { useLocation } from 'react-router-dom';
 
 const NavigationBarPenghuni = () => {
+    const location = useLocation();
     const { id } = useParams();
     const [usersData, setUsers] = useState([]);
+    const isActive = (path) => {
+        return location.pathname === path;
+    };
 
     useEffect(() => {
         const fetchUsers = async () => {
@@ -47,9 +53,8 @@ const NavigationBarPenghuni = () => {
                                     <h1 className=' font-bold'>Account</h1>
                                     <Logout />
                                     <h1 className=' font-bold pt-10 pb-2'>Pages</h1>
-                                    <Link to={`/PenghuniDashboard/${usersData._id}`}>Dashboard</Link>
-                                    <Link to ={`/PenghuniProfile/${usersData._id}`}>Profile</Link>
-    
+                                    <Nav.Link className = {isActive(`/PenghuniDashboard/${usersData._id}`) ? "underline" : ""} href= {`/PenghuniDashboard/${usersData._id}`}>Dashboard</Nav.Link>
+                                    <Nav.Link className = {isActive(`/PenghuniProfile/${usersData._id}`) ? "underline" : ""} href= {`/PenghuniProfile/${usersData._id}`}>Profile</Nav.Link>
                                 </Nav>
                             </Offcanvas.Body>
                         </Navbar.Offcanvas>
