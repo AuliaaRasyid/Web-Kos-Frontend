@@ -100,6 +100,17 @@ const AdminDashboard = () => {
         return 0;
     });
 
+    const getSortIcon = (key) => {
+        if (sortConfig.key === key) {
+            if (sortConfig.direction === 'ascending') {
+                return '↑';
+            } else {
+                return '↓';
+            }
+        }
+        return null;
+    };
+
     return (
         <div className="admin-container font-forum">
             <header>
@@ -142,7 +153,9 @@ const AdminDashboard = () => {
                         <table className="custom-table">
                             <thead>
                                 <tr className='text-center'>
-                                    <th className='cursor-pointer' onClick={() => sortUsers('no_kamar')}>No. Kamar</th>
+                                    <th className='cursor-pointer' onClick={() => sortUsers('no_kamar')}
+                                    >{getSortIcon('no_kamar')} No. Kamar
+                                    </th>
                                     <th>Nama</th>
                                     <th>Tgl Masuk</th>
                                     <th>Tgl Bayar <br />Terakhir</th>

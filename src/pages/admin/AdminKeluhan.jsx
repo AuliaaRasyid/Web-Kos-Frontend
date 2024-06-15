@@ -85,6 +85,17 @@ const AdminKeluhan = () => {
         return 0;
     });
 
+    const getSortIcon = (key) => {
+        if (sortConfig.key === key) {
+            if (sortConfig.direction === 'ascending') {
+                return '↑';
+            } else {
+                return '↓';
+            }
+        }
+        return null;
+    };
+
     return (
         <div className="admin-container font-forum">
             <header>
@@ -98,7 +109,7 @@ const AdminKeluhan = () => {
                             <thead>
                                 <tr className='text-center'>
                                     <th className='cursor-pointer max-w-10' onClick={() => sortComplaints('no_kamar')} 
-                                    >No. Kamar</th>
+                                    > {getSortIcon('no_kamar')} No. Kamar</th>
                                     <th>Nama</th>
                                     <th>Keluhan</th>
                                     <th>Aksi</th>
