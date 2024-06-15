@@ -70,6 +70,9 @@ const PenghuniProfile = () => {
 
         if (result.isConfirmed) {
             try {
+                // Flag to track if any changes were made
+                let changesMade = false;
+
                 // Update name
                 if (userData.name) {
                     const nameResponse = await fetch(`${API_URL}/users/${id}/change-name`, {
@@ -83,7 +86,7 @@ const PenghuniProfile = () => {
                         const errorData = await nameResponse.json();
                         throw new Error(errorData.message || 'Failed to update name');
                     }
-                    Swal.fire('Name updated successfully', '', 'success');
+                    changesMade = true;
                 }
 
                 // Update password if provided
@@ -98,17 +101,25 @@ const PenghuniProfile = () => {
                     const passwordData = await passwordResponse.json();
 
                     if (!passwordResponse.ok) {
-                        throw new Error(passwordData.message);
+                        throw new Error(passwordData.message || 'Failed to update password');
                     }
-                    Swal.fire('Password updated successfully', '', 'success');
+                    changesMade = true;
                 }
 
-                navigateTo(`/PenghuniDashboard/${userData._id}`);
+                // If any changes were made, show success message and redirect
+                if (changesMade) {
+                    Swal.fire('Update successful', '', 'success').then(() => {
+                        navigateTo(`/PenghuniDashboard/${userData._id}`);
+                    });
+                } else {
+                    Swal.fire('No changes made', '', 'info');
+                }
             } catch (error) {
                 Swal.fire(error.message, '', 'error');
             }
         }
     };
+
 
 
     return (
