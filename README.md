@@ -66,30 +66,30 @@ Dasboard Admin
 Clone the project
 
 ```bash
-  git clone https://github.com/AuliaaRasyid/Web-Kos-Frontend.git
+git clone https://github.com/AuliaaRasyid/Web-Kos-Frontend.git
 ```
 
 Make sure to be in Frontend-main directory
 
 ```bash
-  cd Web-Kos-Frontend-main
+cd Web-Kos-Frontend-main
 ```
 
 Install dependencies
 
 ```bash
-  npm install or npm i
+npm install or npm i
 ```
 Build project
 
 ```bash
-  npm run Build
+npm run Build
 ```
 
 Start the server (server will run in Localhost:5173)
 
 ```bash
-  npm run dev
+npm run dev
 ```
 
 For Logging in Make sure the server side or backend side is running
@@ -119,8 +119,7 @@ you will find the MIDTRANS_CLIENT_ID
 ## Demo
 
 Demo Access
-
-[Kos-HoloHero](web-kosann.vercel.app)
+[Kos-HoloHero](https://web-kosann.vercel.app)
 
 Video Penggunaan Aplikasi
 " "
