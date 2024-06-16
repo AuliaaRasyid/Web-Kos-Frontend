@@ -119,7 +119,7 @@ you will find the MIDTRANS_CLIENT_ID
 ## Demo
 
 Demo Access
-web-kosann.vercel.app
+[Kos-HoloHero](https://web-kosann.vercel.app)
 
 Video Penggunaan Aplikasi
 " "
