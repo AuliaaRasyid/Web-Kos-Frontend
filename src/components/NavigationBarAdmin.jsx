@@ -15,7 +15,7 @@ const NavigationBarAdmin = () => {
             {[false].map((expand) => (
                 <Navbar key={expand} expand={expand} className="bg-[#9EB384] py-4 px-1 text-[30px] text-black md:px-20 md:text-[35px]">
                     <Container fluid>
-                        <a href="/">
+                        <a href="#">
                             <div className="flex flex-row items-center">
                                 <img src={logo} className="w-[50px] md:w-[80px]" alt="HoloHero Logo" />
                                 <p>HoloHero</p>
@@ -35,7 +35,7 @@ const NavigationBarAdmin = () => {
                                     <h1 className=' font-bold'>Account</h1>
                                     <Logout />
                                     <h1 className=' font-bold pt-10'>Pages</h1>
-                                    <Nav.Link className = {isActive("/") ? "underline" : ""} href="/">Home</Nav.Link>
+                                    
                                     <Nav.Link className = {isActive("/AdminDashboard") ? "underline" : ""} href="/AdminDashboard">Tambah Penghuni</Nav.Link>
                                     <Nav.Link className = {isActive("/AdminKeluhan") ? "underline" : ""} href="/AdminKeluhan">Keluhan Penghuni</Nav.Link>
                                 </Nav>

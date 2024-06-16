@@ -22,8 +22,6 @@ import "./styles/Home.css";
 
 const Home = () => {
     const [availability, setAvailability] = useState('Available');
-    const [userRole, setUserRole] = useState(null);
-
     const [refKosanMain, controlsKosanMain] = useSectionAnimation();
     const [refBenefit, controlsBenefit] = useSectionAnimation();
     const [refContact, controlsContact] = useSectionAnimation();
@@ -40,7 +38,7 @@ const Home = () => {
         };
 
         const role = localStorage.getItem('role');
-        setUserRole(role);
+        
 
         fetchStatus();
     }, []);
@@ -57,9 +55,6 @@ const Home = () => {
     return (
         <div className="font-forum">
             <header>
-                {userRole === 'admin' && <NavigationBarAdmin />}
-                {userRole === 'user' && <NavigationBarPenghuni />}
-                {!userRole && (
                     <nav className="flex bg-[#9EB384] flex-row items-center 
                     justify-between text-black py-4 xs:px-4 md:px-6 text-[30px] md:text-[35px]">
                         <a href="/">
@@ -70,7 +65,6 @@ const Home = () => {
                         </a>
                         <a href="/LoginPage"><p>LOG IN</p></a>
                     </nav>
-                )}
             </header>
             <main>
                 <motion.div className="hero">
@@ -88,7 +82,7 @@ const Home = () => {
                             variants={heroAnimation}
                             transition={{ duration: 0.5, delay: 0.5 }}
                         >
-                            Tempat Tinggal dengan Kenyamanan Maksimal
+                        Tempat Tinggal dengan Kenyamanan Maksimal
                         </motion.p>
                     </div>
                 </motion.div>

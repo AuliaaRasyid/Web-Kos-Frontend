@@ -33,7 +33,7 @@ const NavigationBarPenghuni = () => {
             {[false].map((expand) => (
                 <Navbar key={expand} expand={expand} className="bg-[#9EB384] py-4 px-1 text-[30px] text-black md:px-20 md:text-[35px]">
                     <Container fluid>
-                        <a href={`/Home/${usersData._id}`}>
+                        <a href={`#`}>
                             <div className="flex flex-row items-center">
                                 <img src={logo} className="w-[50px] md:w-[80px]" alt="HoloHero Logo" />
                                 <p>HoloHero</p>
@@ -53,7 +53,7 @@ const NavigationBarPenghuni = () => {
                                     <h1 className=' font-bold'>Account</h1>
                                     <Logout />                                    
                                     <h1 className=' font-bold pt-10 pb-2'>Pages</h1>
-                                    <Nav.Link className={isActive(`/Home/${usersData._id}`) ? "underline" : ""} href={`/Home/${usersData._id}`}>Home</Nav.Link>
+                                   
                                     <Nav.Link className={isActive(`/PenghuniDashboard/${usersData._id}`) ? "underline" : ""} href={`/PenghuniDashboard/${usersData._id}`}>Dashboard</Nav.Link>
                                     <Nav.Link className={isActive(`/PenghuniProfile/${usersData._id}`) ? "underline" : ""} href={`/PenghuniProfile/${usersData._id}`}>Profile</Nav.Link>
                                 </Nav>

@@ -20,7 +20,6 @@ const App = () => {
     <div>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/Home/:id" element={<Home />} />
         <Route path="/LoginPage" element={<LoginPage />} />
         <Route path="/AccessDenied" element={<AccessDenied />} />
 
