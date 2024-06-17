@@ -73,7 +73,7 @@ git clone https://github.com/AuliaaRasyid/Web-Kos-Frontend.git
 Make sure to be in Frontend-main directory
 
 ```bash
-cd Web-Kos-Frontend-main
+cd Web-Kos-Frontend
 ```
 
 Install dependencies
