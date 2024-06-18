@@ -122,8 +122,9 @@ you will find the MIDTRANS_CLIENT_ID
 Demo Access
 [Kos-HoloHero](https://web-kosann.vercel.app)
 
-Video Penggunaan Aplikasi
-" "
+[Video Penggunaan Aplikasi](https://youtu.be/E_Vi-QEjWfA)
+
+[Video Instalasi Lokal](https://youtu.be/EJt9GbN4i9o)
 
 [Payment-Simulator Midtrans](https://simulator.sandbox.midtrans.com)
 
